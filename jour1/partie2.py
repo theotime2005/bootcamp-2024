@@ -1,5 +1,5 @@
 """
-Piscine 2024
+BootCamp 2024
 Jour 1
 Partie 2
 """
