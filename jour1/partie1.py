@@ -4,15 +4,16 @@ Jour 1
 Partie 1
 """
 
-def multiply(a: int, b: int) -> int:
 
+def multiply(a: int, b: int) -> int:
     """
     Multiply two numbers
     :param a: int
     :param b: int
     :return: int
     """
-    return a*b
+    return a * b
+
 
 # ----------------------------
 def compare(a: int, b: int):
@@ -21,12 +22,13 @@ def compare(a: int, b: int):
     :param a: int
     :param b: int
     """
-    if a>b:
+    if a > b:
         print("Le premier nombre est plus grand que le second")
-    elif a==b:
+    elif a == b:
         print("Les deux nombres sont égaux")
-    elif a<b:
+    elif a < b:
         print("Le premier nombre est plus petit que le second")
+
 
 # ----------------------------
 def counting(x):
@@ -39,12 +41,14 @@ def counting(x):
         print(f"{n},")
     print(x)
 
+
 # ----------------------------
 def ask_user():
     word = input("Entrer un mot: ")
-    while word!="exit":
+    while word != "exit":
         print(f"Vous avez entré : {word}")
         return ask_user()
+
 
 # ----------------------------
 def safe_divide(a: int, b: int) -> float | None:
@@ -59,9 +63,10 @@ def safe_divide(a: int, b: int) -> float | None:
     except:
         return None
 
+
 def display_square(size: int, char: chr):
     """
     Display a square of size x size with the character char
     """
     for i in range(size):
-        print(char*size)
+        print(char * size)

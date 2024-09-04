@@ -15,9 +15,10 @@ def native_csv_read(file: str) -> list[tuple]:
         f = list(csv.reader(csvfile))[1:]
     lst = []
     for i in range(len(f)):
-        tmp = [i]+f[i]
+        tmp = [i] + f[i]
         lst.append(tuple(tmp))
     return lst
+
 
 # ------------------------------
 def native_csv_write(file: str, headers: list, data: list[tuple]):

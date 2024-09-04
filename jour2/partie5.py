@@ -3,15 +3,16 @@ BootCamp 2024
 Jour 2
 Partie 5
 """
-from functools import total_ordering
 
 import pandas as pd
+
 
 def pandas_excel_read(file: str, sheet: str) -> pd.DataFrame:
     """
     Read an Excel file and return the content of a specific sheet as a DataFrame
     """
     return pd.read_excel(file, sheet_name=sheet)
+
 
 # --------------------
 def pandas_excel_write(data: pd.DataFrame, filename: str):
@@ -20,8 +21,9 @@ def pandas_excel_write(data: pd.DataFrame, filename: str):
     """
     data.to_excel(filename, sheet_name="orders", index=False)
 
+
 # --------------------
-def pandas_excel_selective_read(filename: str) -> pd.DataFrame :
+def pandas_excel_selective_read(filename: str) -> pd.DataFrame:
     """
     Read an Excel file and return the content of a specific sheet as a DataFrame
     :param filename: str
@@ -29,6 +31,7 @@ def pandas_excel_selective_read(filename: str) -> pd.DataFrame :
     """
     data = pd.read_excel(filename, sheet_name="orders").iloc[11:][['product', 'total_price']]
     return data.drop_duplicates(subset=['product'])
+
 
 # --------------------
 def pandas_excel_manipulation(filename: str):

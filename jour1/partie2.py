@@ -4,6 +4,7 @@ Jour 1
 Partie 2
 """
 
+
 def concat_with_space(a: str, b: str) -> str:
     """
     Return strings with space between there
@@ -12,6 +13,7 @@ def concat_with_space(a: str, b: str) -> str:
     :return: str
     """
     return f"{a} {b}"
+
 
 # --------------------------------------------
 def format_with_fstring(username: str, age: int) -> str:

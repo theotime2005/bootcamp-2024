@@ -4,6 +4,7 @@ Jour 2
 Partie 1
 """
 
+
 def read_one_line(filename: str) -> str:
     """
     Read one line from a file
@@ -12,6 +13,7 @@ def read_one_line(filename: str) -> str:
     """
     with open(filename, "r") as file:
         return file.readline()[:-1]
+
 
 # ---------------------------------------------------------------------
 def write_text(filename: str, text: str):
@@ -23,6 +25,7 @@ def write_text(filename: str, text: str):
     f = open(filename, "w")
     f.write(text)
     f.close()
+
 
 # ---------------------------------------------------------------------
 def copy_characters(input_file: str, output_file: str, nb: int):
@@ -38,6 +41,7 @@ def copy_characters(input_file: str, output_file: str, nb: int):
     file_output.write(text)
     file_output.close()
 
+
 # ---------------------------------------------------------------------
 def read_all_lines(filename: str) -> (list[str], list[str]):
     """
@@ -52,6 +56,7 @@ def read_all_lines(filename: str) -> (list[str], list[str]):
         file_one_lst.append(file_lst[line])
     return (file_lst, file_one_lst)
 
+
 # ---------------------------------------------------------------------
 def write_text_better(filename: str, text: str):
     """
@@ -61,6 +66,7 @@ def write_text_better(filename: str, text: str):
     """
     with open(filename, "w") as file:
         file.write(text)
+
 
 def copy_characters_better(input_file: str, output_file: str, nb: int):
     """
