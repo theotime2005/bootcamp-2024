@@ -3,7 +3,6 @@ BootCamp 2024
 Jour 3
 Partie 1
 """
-from pprint import pprint
 
 import requests
 
