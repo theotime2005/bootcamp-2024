@@ -6,7 +6,6 @@ Partie 1
 
 from pymongo import MongoClient
 
-
 def get_mongo_client(host: str, port: int) -> MongoClient:
     return MongoClient(host, port)
 
