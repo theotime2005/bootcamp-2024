@@ -11,13 +11,11 @@ def list_discovery() -> list:
     :return: list of numbers
     """
     numbers = list(map(int, sys.argv[1:6]))
-    numbers = sorted(numbers, reverse=True)
+    numbers = sorted(numbers[:-1], reverse=True)
     print(f"Numbers has {len(numbers)} elements and the sum of them all is {sum(numbers)}.")
     numbers.append(int(sys.argv[6]))
     numbers.reverse()
-
     return numbers
-
 
 # ------------------------------
 def dict_creation() -> dict:
@@ -27,10 +25,9 @@ def dict_creation() -> dict:
     """
     values = sys.argv[1:]
     result = {}
-    for i in range(0, len(values) - 1, 2):
+    for i in range(0, len(values)-1, 2):
         result[values[i]] = values[i + 1]
     return result
-
 
 def dict_display(my_dict: dict):
     """
@@ -40,8 +37,7 @@ def dict_display(my_dict: dict):
     list(map(print, my_dict.keys()))
     list(map(print, my_dict.values()))
     for key in my_dict:
-        print({key: my_dict[key]})
-
+        print(f"Key: {key} - Value: {my_dict[key]}")
 
 # ------------------------------
 def tuple_discovery(a, b, c, d) -> tuple:
@@ -91,5 +87,3 @@ def power_via_comprehension(numbers: list[int]) -> list[int]:
             new_list.append(number ** 2)
     return new_list
 
-
-print(power_via_comprehension([1, 2, 3, -4, -5, 6, -7, 8, 9, -10]))

@@ -37,18 +37,17 @@ def counting(x):
     :param x: int
     :return: None
     """
-    for n in range(1, x, 2):
-        print(f"{n},")
-    print(x)
-
+    result = ""
+    for n in range(1, x+1, 2):
+        result+=f"{n},"
+    print(result)
 
 # ----------------------------
 def ask_user():
-    word = input("Entrer un mot: ")
+    word = input()
     while word != "exit":
         print(f"Vous avez entré : {word}")
         return ask_user()
-
 
 # ----------------------------
 def safe_divide(a: int, b: int) -> float | None:
