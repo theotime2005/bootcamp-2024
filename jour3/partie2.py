@@ -3,7 +3,6 @@ BootCamp 2024
 Jour 3
 Partie 2
 """
-import re
 from csv import excel
 
 import bs4

@@ -68,5 +68,3 @@ def recursive_navigation(url: str, nb: int) -> list[str] :
         return result
     except requests.exceptions.ConnectionError:
         return []
-
-# ------------------------------
