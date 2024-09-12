@@ -5,6 +5,6 @@
 echo "Numéro du jour"
 read jour
 cd jour$jour
-zip ../jour$jour.zip *
+zip -r ../jour$jour.zip *
 cd ../
 zip ./jour$jour.zip ./mail.txt
