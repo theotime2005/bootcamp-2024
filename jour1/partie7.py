@@ -11,7 +11,9 @@ def change_separator(base_str: str, split_str: str, join_str: str) -> str:
 
 # ------------------------------
 def sub_index(base_str: str, sub_str: str) -> str:
-    return base_str[base_str.find(sub_str)+len(sub_str):]
+    if base_str.find(sub_str):
+        return base_str[base_str.find(sub_str) + len(sub_str):]
+    return base_str
 
 # ------------------------------
 def replace_str(base_str: str, sub_str: str) -> str:

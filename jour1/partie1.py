@@ -39,8 +39,10 @@ def counting(x):
     """
     result = ""
     for n in range(1, x+1, 2):
-        result+=f"{n},"
+        result+=f"{n}, "
+    result=result[:-1]
     print(result)
+
 
 # ----------------------------
 def ask_user():
