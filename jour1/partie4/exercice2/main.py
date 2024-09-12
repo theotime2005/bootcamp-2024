@@ -1,4 +1,4 @@
-from .other import display_message
+from other import display_message
 
 
 def main():
