@@ -11,7 +11,8 @@ def list_discovery() -> list:
     :return: list of numbers
     """
     numbers = list(map(int, sys.argv[1:6]))
-    numbers = sorted(numbers[:-1], reverse=True)
+    numbers = sorted(numbers, reverse=True)
+    numbers.pop(-1)
     print(f"Numbers has {len(numbers)} elements and the sum of them all is {sum(numbers)}.")
     numbers.append(int(sys.argv[6]))
     numbers.reverse()

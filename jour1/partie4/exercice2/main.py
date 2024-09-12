@@ -1,4 +1,4 @@
-from jour1.partie4.exercice2.other import display_message
+from .other import display_message
 
 
 def main():
