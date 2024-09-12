@@ -12,7 +12,7 @@ def read_one_line(filename: str) -> str:
     :return: str
     """
     with open(filename, "r") as file:
-        return file.readline()[:-1]
+        return file.readline()
 
 
 # ---------------------------------------------------------------------
@@ -38,7 +38,7 @@ def copy_characters(input_file: str, output_file: str, nb: int):
     with open(input_file, "r") as file:
         text = file.read(nb)
     file_output = open(output_file, "a")
-    file_output.write(text)
+    file_output.write(f"\n{text}")
     file_output.close()
 
 
@@ -49,13 +49,14 @@ def read_all_lines(filename: str) -> (list[str], list[str]):
     :param filename: str
     :return: (list[str], list[str])
     """
+    file_lst=[]
     with open(filename, "r") as file:
-        file_lst = file.read().split("\n")
+        for line in file:
+            file_lst.append(line)
     file_one_lst = []
     for line in range(0, len(file_lst), 2):
         file_one_lst.append(file_lst[line])
     return (file_lst, file_one_lst)
-
 
 # ---------------------------------------------------------------------
 def write_text_better(filename: str, text: str):

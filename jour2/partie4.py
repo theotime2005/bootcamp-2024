@@ -14,11 +14,10 @@ def pandas_csv_read(file: str) -> pd.DataFrame:
     df = pd.read_csv(file)
     return df
 
-
 # --------------------
 def pandas_csv_write(file: str, headers: list, data: list[tuple]):
     """
     Write a csv file with pandas
     """
-    df = pd.DataFrame(data, columns=headers)
+    df = pd.DataFrame(list(zip(*data)), columns=headers)
     df.to_csv(file, index=False)
