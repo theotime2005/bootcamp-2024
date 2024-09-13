@@ -6,6 +6,7 @@ Partie 1
 
 import requests
 
+
 def get_request(url: str) -> (int, str):
     """
     Do a request and return a tuple with status code and json data
@@ -23,17 +24,16 @@ def get_countries_info(country_codes: list, info: list) -> (int, str):
     :param info: list
     :return: (int, str)
     """
-    request_url = "https://restcountries.com/v3.1/alpha?codes="
-    for code in country_codes:
-        request_url+=f"{code},"
-    request_url=request_url[:-1]
-    response = requests.get(request_url)
+    request_url = "https://restcountries.com/v3.1/alpha"
+    response = requests.get(request_url, params={"codes": country_codes})
     data = response.json()
     result = []
     for country in data:
+        info_country = {}
         for information in info:
             if country.get(information):
-                result.append({information:country[information]})
+                info_country[information]=country[information]
+        result.append(info_country)
     return (response.status_code, result)
 
 # ------------------------------
@@ -48,8 +48,8 @@ def handle_request_status(url: str) -> int | str :
         req.raise_for_status()
         if req.status_code==200:
             return req.status_code
-    except requests.exceptions.HTTPError as http_err:
-        return http_err
+    except Exception as e:
+        return str(e)
 
 # ------------------------------
 def send_query_parameters(params: dict) -> dict:
