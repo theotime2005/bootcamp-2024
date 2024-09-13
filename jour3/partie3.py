@@ -52,6 +52,7 @@ def download_images(url: str, folder: str, max: int | None = None):
         print("Connexion error")
         return
 
+
 # ------------------------------
 def get_nth_wiki_link(html, nb):
     """
