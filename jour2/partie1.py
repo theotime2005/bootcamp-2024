@@ -41,7 +41,6 @@ def copy_characters(input_file: str, output_file: str, nb: int):
     file_output.write(f"\n{text}")
     file_output.close()
 
-
 # ---------------------------------------------------------------------
 def read_all_lines(filename: str) -> (list[str], list[str]):
     """
@@ -78,4 +77,4 @@ def copy_characters_better(input_file: str, output_file: str, nb: int):
     """
     with open(input_file, "r") as file, open(output_file, "a") as file_output:
         text = file.read(nb)
-        file_output.write(text)
+        file_output.write(f"\n{text}")

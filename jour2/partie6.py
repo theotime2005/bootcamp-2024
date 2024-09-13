@@ -3,7 +3,7 @@ BootCamp 2024
 Jour 2
 Partie 6
 """
-
+import json
 import pandas as pd
 
 
@@ -40,15 +40,22 @@ def pandas_complex_json(filename: str, new_product: dict):
     df = pd.read_json(filename)
 
     # Étape 1 : Ajouter un nouveau produit à la première transaction
-    df.at[0, 'products'].append(new_product)
+    first_products = df.at[0, 'products']
+    first_products.append(new_product)
+    df.at[0, 'products'] = first_products  # Réassigner la liste modifiée
 
     # Étape 2 : Supprimer la deuxième transaction
     if len(df) > 1:
-        df = df.drop(1)
+        df = df.drop(1).reset_index(drop=True)  # Réindexer après suppression
 
     # Étape 3 : Supprimer le deuxième produit de la troisième transaction (si existe)
     if len(df) > 2 and len(df.at[2, 'products']) > 1:
-        del df.at[2, 'products'][1]
+        third_products = df.at[2, 'products']
+        del third_products[1]
+        df.at[2, 'products'] = third_products  # Réassigner la liste modifiée
 
-    # Sauvegarder les modifications dans le même fichier JSON avec une indentation de 2 espaces
-    df.to_json(filename, orient='records', indent=2)
+    # Sauvegarder les modifications dans le fichier JSON avec une indentation de 2 espaces
+    # Convertir en liste de dictionnaires
+    data_dict = df.to_dict(orient='records')
+    with open(filename, 'w') as f:
+        json.dump(data_dict, f, indent=2)
