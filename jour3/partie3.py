@@ -48,6 +48,7 @@ def download_images(url: str, folder: str, max: int | None = None):
         print("Connexion error")
         return
 
+
 # ------------------------------
 def recursive_navigation(url: str, nb: int) -> list[str] :
     """

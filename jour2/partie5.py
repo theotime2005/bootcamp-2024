@@ -42,7 +42,10 @@ def pandas_excel_selective_read(filename: str) -> pd.DataFrame:
     data = pd.read_excel(filename, sheet_name="orders", skiprows=range(1, 11))[['product', 'total_price']]
 
     # Group by 'product' and sum the 'total_price'
-    result = data.groupby('product', as_index=False)['total_price'].sum()
+    result = data.groupby('product')['total_price'].sum()
+
+    # Sort the result by the product names
+    result = result.sort_index()
 
     return result
 
