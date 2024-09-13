@@ -15,7 +15,7 @@ def native_csv_read(file: str) -> list[tuple]:
         f = list(csv.reader(csvfile, delimiter=";"))[1:]
     lst = []
     for i in range(len(f)):
-        tmp = [i+1] + f[i]
+        tmp = [i] + f[i]
         lst.append(tuple(tmp))
     return lst
 

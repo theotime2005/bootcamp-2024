@@ -29,17 +29,14 @@ def write_text(filename: str, text: str):
 
 # ---------------------------------------------------------------------
 def copy_characters(input_file: str, output_file: str, nb: int):
-    """
-    Copy the first nb characters from the input file to the output file
-    :param input_file: str
-    :param output_file: str
-    :param nb: int
-    """
-    with open(input_file, "r") as file:
-        text = file.read(nb)
-    file_output = open(output_file, "a")
-    file_output.write(f"\n{text}")
-    file_output.close()
+    try:
+        with open(input_file, 'r') as infile:
+            content = infile.read(nb)
+            with open(output_file, 'a') as outfile:
+                if content or nb == 0:
+                    outfile.write(content + '\n')
+    except:
+        print("An error occurred while copying the file")
 
 # ---------------------------------------------------------------------
 def read_all_lines(filename: str) -> (list[str], list[str]):
@@ -48,7 +45,7 @@ def read_all_lines(filename: str) -> (list[str], list[str]):
     :param filename: str
     :return: (list[str], list[str])
     """
-    file_lst=[]
+    file_lst = []
     with open(filename, "r") as file:
         for line in file:
             file_lst.append(line)
@@ -56,6 +53,7 @@ def read_all_lines(filename: str) -> (list[str], list[str]):
     for line in range(0, len(file_lst), 2):
         file_one_lst.append(file_lst[line])
     return (file_lst, file_one_lst)
+
 
 # ---------------------------------------------------------------------
 def write_text_better(filename: str, text: str):

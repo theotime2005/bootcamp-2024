@@ -48,4 +48,4 @@ def dataframe_accession(data: pd.DataFrame) -> tuple:
     :param data: pd.DataFrame
     :return: tuple
     """
-    return (data['product'].tolist(), data.loc[1].to_dict(), data.loc[3]['quantity'])
+    return (data['product'].tolist(), data.loc[1].to_dict(), data.loc[2][@'quantity'])
