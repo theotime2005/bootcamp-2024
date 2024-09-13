@@ -12,7 +12,7 @@ def native_csv_read(file: str) -> list[tuple]:
     Read a csv file and return a list of tuples
     """
     with open(file, mode="r", newline='') as csvfile:
-        f = list(csv.reader(csvfile))[1:]
+        f = list(csv.reader(csvfile, delimiter=";"))[1:]
     lst = []
     for i in range(len(f)):
         tmp = [i+1] + f[i]

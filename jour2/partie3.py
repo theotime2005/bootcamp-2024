@@ -37,7 +37,7 @@ def create_dataframe(products: list[str], quantities: list[int], prices: list[fl
     """
     return pd.DataFrame({
         'product': products,
-        'quantitiy': quantities,
+        'quantity': quantities,
         'total_price': prices
     })
 
@@ -48,4 +48,4 @@ def dataframe_accession(data: pd.DataFrame) -> tuple:
     :param data: pd.DataFrame
     :return: tuple
     """
-    return (data['product'].tolist(), data.iloc[1].to_dict(), data.iloc[3]['quantity'])
+    return (data['product'].tolist(), data.loc[1].to_dict(), data.loc[3]['quantity'])
