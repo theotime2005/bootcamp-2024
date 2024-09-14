@@ -19,7 +19,6 @@ def get_laureates_information(client: MongoClient) -> list[dict]:
 
 def get_prize_categories(client: MongoClient) -> list[str]:
     return list(client.nobel.laureates.distinct("prizes.category"))
-print(get_prize_categories(get_mongo_client("localhost", 27017)))
 
 # ------------------------------
 def get_category_laureates(client: MongoClient, category: str) -> list[dict]:
