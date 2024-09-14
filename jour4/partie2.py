@@ -18,4 +18,13 @@ def create_country_index(client: MongoClient):
     return client.nobel.laureates.create_index([("bornCountry", "text"), ("diedCountry", "text")])
 
 def get_country_laureates(client: MongoClient, country: str) -> list[dict]:
-    return list(client.nobel.laureates.find({"$text": {"$search": country}}, {"firstname": 1, "surname": 1, "bornCountry": 1, "diedCountry": 1, "_id": 0}))
+    try:
+        # Recherche basée sur le pays de naissance
+        laureates = list(client.nobel.laureates.find(
+            {"bornCountry": country},
+            {"firstname": 1, "surname": 1, "bornCountry": 1, "diedCountry": 1, "_id": 0}
+        ))
+        return laureates
+    except Exception as e:
+        print(f"Erreur lors de la récupération des lauréats : {e}")
+        return []
