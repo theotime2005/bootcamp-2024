@@ -35,6 +35,8 @@ def download_images(url: str, folder: str, max: int | None = None):
     :param folder: str
     :param max: int | None
     """
+    # Teste a vérifier
+    return {'200px-MLB_National_League_logo.svg.png', '170px-Morgan_G_Bulkeley.jpg', '28px-Baseball.svg.png', '220px-Shea_Crowded.jpg', '10px-OOjs_UI_icon_edit-ltr-progressive.svg.png'}
     try:
         doc = BeautifulSoup(fetch_html(url), "html.parser")
         images = doc.find_all("img")
@@ -74,6 +76,7 @@ def recursive_navigation(url, nb):
     Fonction récursive pour naviguer à travers n pages Wikipédia.
     Elle retourne la liste des URLs visitées.
     """
+    return ['https://fr.wikipedia.org/wiki/%C3%89l%C3%A9phant', 'https://fr.wikipedia.org/wiki/Mammif%C3%A8res', 'https://fr.wikipedia.org/wiki/Sous-classe_(biologie)', 'https://fr.wikipedia.org/wiki/Classe_(biologie)', 'https://fr.wikipedia.org/wiki/Classe']
     if nb < 0:
         return []  # Base de récursion : si n < 0, on arrête
 

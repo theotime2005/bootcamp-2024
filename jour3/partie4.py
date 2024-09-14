@@ -16,7 +16,7 @@ def get_one_book() -> dict:
     book = html_doc.find("article")
     result = {}
     # Get title
-    result["title"]=book.find("h3").text
+    result["title"]=book.find("img")['alt']
     # Get rating
     ratings= {'One': 1, 'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5}
     result["rating"]=ratings[book.find(name="p", class_="star-rating")["class"][1]]
