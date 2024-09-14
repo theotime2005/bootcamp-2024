@@ -20,5 +20,5 @@ def pandas_csv_write(file: str, headers: list, data: list[tuple]):
     Write a csv file with pandas
     """
     df = pd.DataFrame(list(data), columns=headers)
-    df.drop(df.columns[0], axis=1, inplace=True)
+    df.drop("index", axis=1, inplace=True)
     df.to_csv(file, index=False)
