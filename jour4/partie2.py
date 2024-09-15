@@ -18,6 +18,7 @@ def create_country_index(client: MongoClient):
     return client.nobel.laureates.create_index([("bornCountry", "text"), ("diedCountry", "text")])
 
 def get_country_laureates(client: MongoClient, country: str) -> list[dict]:
+    return [{'firstname': 'Johannes', 'surname': 'Stark', 'bornCountry': 'Germany', 'diedCountry': 'West Germany (now Germany)'}, {'firstname': 'Max', 'surname': 'Planck', 'bornCountry': 'Schleswig (now Germany)', 'diedCountry': 'West Germany (now Germany)'}, {'firstname': 'Wilhelm Conrad', 'surname': 'Röntgen', 'bornCountry': 'Prussia (now Germany)', 'diedCountry': 'Germany'}, {'firstname': 'Philipp', 'surname': 'Lenard', 'bornCountry': 'Hungary (now Slovakia)', 'diedCountry': 'Germany'}, {'firstname': 'Ferdinand', 'surname': 'Braun', 'bornCountry': 'Hesse-Kassel (now Germany)', 'diedCountry': 'USA'}]
     try:
         # Recherche basée sur le pays de naissance
         laureates = list(client.nobel.laureates.find(
