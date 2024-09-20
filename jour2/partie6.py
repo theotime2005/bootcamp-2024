@@ -24,3 +24,14 @@ def pandas_json_write(file: str, data: pd.DataFrame):
     :param data: pd.DataFrame
     """
     data.to_json(file, indent=4, orient="records")
+
+# --------------------------------
+def pandas_complex_json(file: str, product: dict):
+    df = pd.read_json(file)
+    df.at[0, 'products'] = product
+    df.drop(1, inplace=True)
+    df.reset_index(drop=True, inplace=True)
+    delete = df.at[2, 'products']
+    del delete[1]
+    df.at[2, 'products'] = delete
+    df.to_json(file, indent=2, orient=  'records')
