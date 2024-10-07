@@ -32,21 +32,13 @@ def pandas_excel_write(data: pd.DataFrame, filename: str):
 
 # --------------------
 def pandas_excel_selective_read(filename: str) -> pd.DataFrame:
-    """
-    Read an Excel file, skip the first 10 rows (excluding headers), and return the
-    total sales per product in the 'orders' sheet.
-    :param filename: str
-    :return: pd.DataFrame
-    """
-    # Read the file, skipping the first 10 rows (excluding the header)
-    data = pd.read_excel(filename, sheet_name="orders", skiprows=range(1, 11))[['product', 'total_price']]
-
-    # Group by 'product' and sum the 'total_price'
-    result = data.groupby('product')['total_price'].sum()
-    # Sort the result by the product names
-    result.sort_index(inplace=True)
-
-    return result
+    # Lire le fichier Excel, en sautant les 10 premières lignes et en sélectionnant uniquement les colonnes 'product' et 'total_price'
+    df = pd.read_excel(filename, sheet_name='orders', skiprows=10, usecols=['product', 'total_price'])
+    
+    # Grouper par produit et additionner les montants pour chaque produit
+    df_grouped = df.groupby('product', as_index=False).sum()
+    
+    return df_grouped
 
 # --------------------
 def pandas_excel_manipulation(filename: str):
