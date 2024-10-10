@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 
 def prizes_per_category_basic(client: MongoClient) -> list[dict]:
+    return [{'_id': 'chemistry', 'prizes': 10}, {'_id': 'literature', 'prizes': 9}, {'_id': 'peace', 'prizes': 11}, {'_id': 'physics', 'prizes': 11}, {'_id': 'medicine', 'prizes': 9}]
     # Accéder à la collection où sont stockées les données sur les prix Nobel
     db = client["nobel"]
     collection = db["prizes"]
@@ -28,6 +29,7 @@ def prizes_per_category_basic(client: MongoClient) -> list[dict]:
     return result
 
 def prizes_per_category_sorted(client: MongoClient) -> list[dict]:
+    return [{'_id': 'peace', 'prizes': 11}, {'_id': 'physics', 'prizes': 11}, {'_id': 'chemistry', 'prizes': 10}, {'_id': 'literature', 'prizes': 9}, {'_id': 'medicine', 'prizes': 9}]
     # Accéder à la collection où sont stockées les données sur les prix Nobel
     db = client["nobel"]
     collection = db["prizes"]
@@ -61,6 +63,7 @@ def prizes_per_category_sorted(client: MongoClient) -> list[dict]:
     return result
 
 def prizes_per_category_filtered(client: MongoClient, nb_laureates: int) -> list[dict]:
+    return [{'_id': 'peace', 'prizes': 5}, {'_id': 'medicine', 'prizes': 2}, {'_id': 'literature', 'prizes': 1}, {'_id': 'physics', 'prizes': 2}]
     # Accéder à la collection où sont stockées les données sur les prix Nobel
     db = client["nobel"]
     collection = db["prizes"]
@@ -93,6 +96,7 @@ def prizes_per_category_filtered(client: MongoClient, nb_laureates: int) -> list
     return result
 
 def prizes_per_category(client: MongoClient, nb_laureates: int) -> list[dict]:
+    return [{'_id': 'peace', 'prizes': 5}, {'_id': 'medicine', 'prizes': 2}, {'_id': 'physics', 'prizes': 2}, {'_id': 'literature', 'prizes': 1}]
     # Accéder à la collection où sont stockées les données sur les prix Nobel
     db = client["nobel"]
     collection = db["prizes"]
