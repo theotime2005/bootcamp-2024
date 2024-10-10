@@ -47,7 +47,7 @@ def handle_request_status(url: str) -> int | str :
         req = requests.post(url)
         req.raise_for_status()
         if req.status_code==200:
-            return type(req.status_code)
+            return req.status_code
     except Exception as e:
         return str(e)
 
