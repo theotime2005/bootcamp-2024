@@ -47,9 +47,10 @@ def handle_request_status(url: str) -> int | str :
         req = requests.post(url)
         req.raise_for_status()
         if req.status_code==200:
-            return int(req.status_code)
+            return type(req.status_code)
     except Exception as e:
         return str(e)
+print(handle_request_status("https://epitech.digital"))
 
 # ------------------------------
 def send_query_parameters(params: dict) -> dict:
