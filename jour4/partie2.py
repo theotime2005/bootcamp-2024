@@ -80,19 +80,6 @@ def get_gender_category_laureates(client: MongoClient, gender: str, category: st
 
     return result
 
-
-# Exemple d'utilisation
-if __name__ == "__main__":
-    client = MongoClient('mongodb://localhost:27017/')  # Remplace par l'URL de ta base de données
-    index_name = create_gender_category_index(client)
-    print(f"Index créé : {index_name}")
-
-    # Exemple de récupération des lauréats
-    gender = 'female'  # ou 'male'
-    category = 'Physics'  # Remplace par la catégorie souhaitée
-    laureates = get_gender_category_laureates(client, gender, category)
-    return laureates
-
 # -------------------------------------
 def create_year_category_index(client: MongoClient):
     # Sélection de la base de données et de la collection 'prizes'
