@@ -75,4 +75,4 @@ def copy_characters_better(input_file: str, output_file: str, nb: int):
     """
     with open(input_file, "r") as file, open(output_file, "a") as file_output:
         text = file.read(nb)
-        file_output.write(f"\n{text}")
+        file_output.write(f"{text}\n")
